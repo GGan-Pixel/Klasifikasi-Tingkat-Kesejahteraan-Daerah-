@@ -11,7 +11,7 @@ le_kabkota  = joblib.load('le_kabkota.pkl')
 le_kategori = joblib.load('le_kategori.pkl')
 
 # D4 — Header aplikasi
-st.title("🌟 Prediksi Tingkat Kesejahteraan Daerah")
+st.title(" Prediksi Tingkat Kesejahteraan Daerah")
 st.write("Masukkan data daerah untuk memprediksi tingkat kesejahteraan.")
 
 # D3 — Widget input
@@ -40,7 +40,7 @@ def predict(inputs):
     return pred, prob
 
 # Tombol prediksi
-if st.button("🔮 Prediksi Sekarang"):
+if st.button("Prediksi Sekarang"):
 
     # Encode input kategorikal — harus pakai encoder yang sama dari notebook!
     provinsi_enc = le_provinsi.transform([provinsi])[0]
@@ -63,10 +63,8 @@ if st.button("🔮 Prediksi Sekarang"):
     # Tampilkan hasil
     st.divider()
     if hasil == "Tinggi":
-        st.success(f"### 🟢 Tingkat Kesejahteraan: {hasil}")
+        st.success(f"###  Tingkat Kesejahteraan: {hasil}")
     elif hasil == "Sedang":
-        st.warning(f"### 🟡 Tingkat Kesejahteraan: {hasil}")
+        st.warning(f"###  Tingkat Kesejahteraan: {hasil}")
     else:
-        st.error(f"### 🔴 Tingkat Kesejahteraan: {hasil}")
-
-    st.info(f"Keyakinan model: {keyakinan:.1f}%")
+        st.error(f"###  Tingkat Kesejahteraan: {hasil}")
